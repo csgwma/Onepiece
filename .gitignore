@@ -1,14 +1,20 @@
 bin
 target
+.DS_Store
 .settings
 .project
 .classpath
-
-*.class
-.DS_Store
-
 
 # package files #
 *.jar
 *.war
 *.ear
+
+# Java.ignore file
+*.class
+*.o
+
+# cpp.ignore file
+*.exe
+
+# Mobile Tools for Java (J2ME)
