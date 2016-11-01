@@ -18,4 +18,7 @@ CodeRepository/tmp
 # cpp.ignore file
 *.exe
 
+# python.ignore file
+*.pyc
+
 # Mobile Tools for Java (J2ME)
