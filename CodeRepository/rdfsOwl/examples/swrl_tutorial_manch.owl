@@ -1,0 +1,107 @@
+Prefix: : <http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#>
+Prefix: my: <urn:makub:builtIn#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: var: <urn:swrl#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: swrlb: <http://www.w3.org/2003/11/swrlb#>
+
+
+
+Ontology: <http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl>
+
+
+AnnotationProperty: rdfs:comment
+
+    
+Datatype: xsd:date
+
+    
+Datatype: xsd:integer
+
+    
+Datatype: xsd:boolean
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+ObjectProperty: hasChild
+
+    
+DataProperty: bornInYear
+
+    
+DataProperty: hasDriverAge
+
+    
+DataProperty: hasAge
+
+    Characteristics: 
+        Functional
+    
+    
+DataProperty: bornOnDate
+
+    
+Class: Person
+
+    
+Class: Adult
+
+    SubClassOf: 
+        Person
+    
+    
+Class: Parent
+
+    SubClassOf: 
+        Person
+    
+    
+Individual: Ivan
+
+    Types: 
+        Person
+    
+    Facts:  
+     bornOnDate  "2006-04-14"^^xsd:date
+    
+    
+Individual: Martin
+
+    Types: 
+        Person
+    
+    Facts:  
+     hasChild  Ivan,
+     bornOnDate  "1972-10-02"^^xsd:date
+    
+    
+Individual: Lenka
+
+    Types: 
+        Person
+    
+    Facts:  
+     hasChild  Ivan,
+     bornOnDate  "1975-11-10"^^xsd:date
+    
+    
+Rule: 
+    swrlb:subtract(?age, ?nowyear, ?year), Person(?p), bornInYear(?p, ?year), <urn:makub:builtIn#thisYear>(?nowyear) -> hasAge(?p, ?age)
+
+Rule: 
+    xsd:integer[>= 18 , <= 65](?age), hasAge(?p, ?age), Person(?p) -> hasDriverAge(?p, true)
+
+Rule: 
+    Person(?p), bornOnDate(?p, ?date), swrlb:date(?date, ?year, ?month, ?day, ?timezone), xsd:date(?date) -> bornInYear(?p, ?year)
+
+Rule: 
+    (hasChild min 1 Person)(?x), Person(?x) -> Parent(?x)
+
+Rule: 
+    hasAge(?p, ?age), Person(?p), swrlb:greaterThan(?age, 18) -> Adult(?p)
+

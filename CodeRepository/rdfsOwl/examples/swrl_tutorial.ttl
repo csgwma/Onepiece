@@ -1,0 +1,352 @@
+@prefix : <http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#> .
+@prefix my: <urn:makub:builtIn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix var: <urn:swrl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@base <http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl> .
+
+<http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Datatypes
+#
+#################################################################
+
+
+###  http://www.w3.org/2001/XMLSchema#date
+
+xsd:date rdf:type rdfs:Datatype .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#hasChild
+
+:hasChild rdf:type owl:ObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#bornInYear
+
+:bornInYear rdf:type owl:DatatypeProperty .
+
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#bornOnDate
+
+:bornOnDate rdf:type owl:DatatypeProperty .
+
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#hasAge
+
+:hasAge rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty .
+
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#hasDriverAge
+
+:hasDriverAge rdf:type owl:DatatypeProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#Adult
+
+:Adult rdf:type owl:Class ;
+       
+       rdfs:subClassOf :Person .
+
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#Parent
+
+:Parent rdf:type owl:Class ;
+        
+        rdfs:subClassOf :Person .
+
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#Person
+
+:Person rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#Ivan
+
+:Ivan rdf:type :Person ,
+               owl:NamedIndividual ;
+      
+      :bornOnDate "2006-04-14"^^xsd:date .
+
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#Lenka
+
+:Lenka rdf:type :Person ,
+                owl:NamedIndividual ;
+       
+       :bornOnDate "1975-11-10"^^xsd:date ;
+       
+       :hasChild :Ivan .
+
+
+
+###  http://acrab.ics.muni.cz/ontologies/swrl_tutorial.owl#Martin
+
+:Martin rdf:type :Person ,
+                 owl:NamedIndividual ;
+        
+        :bornOnDate "1972-10-02"^^xsd:date ;
+        
+        :hasChild :Ivan .
+
+
+
+
+
+#################################################################
+#
+#    Rules
+#
+#################################################################
+
+
+var:age rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:nowyear rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:year rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:p rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:date rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:month rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:day rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:timezone rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+var:x rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  rdfs:comment "Rule computing bornInYear from bornOnDate" ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Person ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#builtin> swrlb:date ;
+                                                                            <http://www.w3.org/2003/11/swrl#arguments> ( var:date
+                                                                                                                         var:year
+                                                                                                                         var:month
+                                                                                                                         var:day
+                                                                                                                         var:timezone
+                                                                                                                       )
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DataRangeAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#dataRange> xsd:date ;
+                                                                                       <http://www.w3.org/2003/11/swrl#argument1> var:date
+                                                                                     ]
+                                                                         ]
+                                                              ] ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#propertyPredicate> :bornOnDate ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument2> var:date ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                               ]
+                                                   ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :bornInYear ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:p ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> var:year
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  rdfs:comment "Rule computing hasAge from bornInYear" ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :Person ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#propertyPredicate> :bornInYear ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> var:p ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument2> var:year
+                                                                          ] ;
+                                                                rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                           rdf:rest rdf:nil ;
+                                                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                       <http://www.w3.org/2003/11/swrl#builtin> my:thisYear ;
+                                                                                       <http://www.w3.org/2003/11/swrl#arguments> ( var:nowyear
+                                                                                                                                  )
+                                                                                     ]
+                                                                         ]
+                                                              ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#builtin> swrlb:subtract ;
+                                                      <http://www.w3.org/2003/11/swrl#arguments> ( var:age
+                                                                                                   var:nowyear
+                                                                                                   var:year
+                                                                                                 )
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAge ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> var:age ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  rdfs:comment "Rule with data range restriction" ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DataRangeAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:age ;
+                                                      <http://www.w3.org/2003/11/swrl#dataRange> [ rdf:type rdfs:Datatype ;
+                                                                                                   owl:onDatatype xsd:integer ;
+                                                                                                   owl:withRestrictions ( [ xsd:minInclusive 18
+                                                                                                                          ]
+                                                                                                                          [ xsd:maxInclusive 65
+                                                                                                                          ]
+                                                                                                                        )
+                                                                                                 ]
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAge ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument2> var:age ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:rest rdf:nil ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#classPredicate> :Person ;
+                                                                            <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                                          ]
+                                                              ]
+                                                   ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasDriverAge ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  rdfs:comment "Rule with core builtin swrlb:greaterThan" ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Adult ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                    ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :Person ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                               ] ;
+                                                     rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                rdf:rest rdf:nil ;
+                                                                rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                            <http://www.w3.org/2003/11/swrl#builtin> swrlb:greaterThan ;
+                                                                            <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                         rdf:first var:age ;
+                                                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                    rdf:first 18 ;
+                                                                                                                                    rdf:rest rdf:nil
+                                                                                                                                  ]
+                                                                                                                       ]
+                                                                          ]
+                                                              ]
+                                                   ] ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAge ;
+                                                      <http://www.w3.org/2003/11/swrl#argument2> var:age ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:p
+                                                    ]
+                                        ]
+] .
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+  rdfs:comment "Rule with class expression" ;
+  <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:x ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty :hasChild ;
+                                                                                                        owl:onClass :Person ;
+                                                                                                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                                                      ]
+                                                    ] ;
+                                          rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                     rdf:rest rdf:nil ;
+                                                     rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                 <http://www.w3.org/2003/11/swrl#classPredicate> :Person ;
+                                                                 <http://www.w3.org/2003/11/swrl#argument1> var:x
+                                                               ]
+                                                   ]
+                                        ] ;
+  <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                          rdf:rest rdf:nil ;
+                                          rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                      <http://www.w3.org/2003/11/swrl#classPredicate> :Parent ;
+                                                      <http://www.w3.org/2003/11/swrl#argument1> var:x
+                                                    ]
+                                        ]
+] .
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
