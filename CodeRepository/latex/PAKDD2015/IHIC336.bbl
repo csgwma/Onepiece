@@ -1,0 +1,120 @@
+\begin{thebibliography}{10}
+
+\bibitem{kwak2010twitter}
+Kwak, H., Lee, C., Park, H., Moon, S.:
+\newblock What is twitter, a social network or a news media?
+\newblock In: WWW, ACM (2010)  591--600
+
+\bibitem{hartline2008optimal}
+Hartline, J., Mirrokni, V., Sundararajan, M.:
+\newblock Optimal marketing strategies over social networks.
+\newblock In: WWW, ACM (2008)  189--198
+
+\bibitem{liu2013conducting}
+Liu, L., Yang, Z., Benslimane, Y.:
+\newblock Conducting efficient and cost-effective targeted marketing using data
+  mining techniques.
+\newblock In: GCIS, IEEE (2013)  102--106
+
+\bibitem{kantor2011recommender}
+Ricci, F., Rokach, L., Shapira, B., Kantor, P.B.:
+\newblock Recommender systems handbook. Volume~1.
+\newblock Springer (2011)
+
+\bibitem{kempe2003maximizing}
+Kempe, D., Kleinberg, J., Tardos, {\'E}.:
+\newblock Maximizing the spread of influence through a social network.
+\newblock In: SIGKDD, ACM (2003)  137--146
+
+\bibitem{alowibdi2013empirical}
+Alowibdi, J.S., Buy, U.A., Yu, P.:
+\newblock Empirical evaluation of profile characteristics for gender
+  classification on twitter.
+\newblock In: ICMLA. Volume~1., IEEE (2013)  365--369
+
+\bibitem{jamali2009trustwalker}
+Jamali, M., Ester, M.:
+\newblock Trustwalker: a random walk model for combining trust-based and
+  item-based recommendation.
+\newblock In: SIGKDD, ACM (2009)  397--406
+
+\bibitem{he2012influence}
+He, X., Song, G., Chen, W., Jiang, Q.:
+\newblock Influence blocking maximization in social networks under the
+  competitive linear threshold model.
+\newblock In: SDM, SIAM (2012)  463--474
+
+\bibitem{chen2013information}
+Chen, W., Lakshmanan, L.V., Castillo, C.:
+\newblock Information and influence propagation in social networks.
+\newblock Synthesis Lectures on Data Management \textbf{5}(4) (2013)  1--177
+
+\bibitem{tang2013social}
+Tang, J., Hu, X., Liu, H.:
+\newblock Social recommendation: a review.
+\newblock Social Network Analysis and Mining \textbf{3}(4) (2013)  1113--1133
+
+\bibitem{koren2009matrix}
+Koren, Y., Bell, R., Volinsky, C.:
+\newblock Matrix factorization techniques for recommender systems.
+\newblock Computer \textbf{42}(8) (2009)  30--37
+
+\bibitem{contentRS2007}
+Pazzani, M.J., Billsus, D.:
+\newblock Content-based recommendation systems.
+\newblock In: The adaptive web.
+\newblock Springer (2007)  325--341
+
+\bibitem{cf2009survey}
+Su, X., Khoshgoftaar, T.M.:
+\newblock A survey of collaborative filtering techniques.
+\newblock Advances in artificial intelligence \textbf{2009} (2009) ~4
+
+\bibitem{goyal2010learning}
+Goyal, A., Bonchi, F., Lakshmanan, L.V.:
+\newblock Learning influence probabilities in social networks.
+\newblock In: WSDM, ACM (2010)  241--250
+
+\bibitem{kdd13STRIP}
+Kutzkov, K., Bifet, A., Bonchi, F., Gionis, A.:
+\newblock Strip: stream learning of influence probabilities.
+\newblock In: KDD. (2013)  275--283
+
+\bibitem{goldenberg2001talk}
+Goldenberg, J., Libai, B., Muller, E.:
+\newblock Talk of the network: A complex systems look at the underlying process
+  of word-of-mouth.
+\newblock Marketing letters \textbf{12}(3) (2001)  211--223
+
+\bibitem{granovetter1978threshold}
+Granovetter, M.:
+\newblock Threshold models of collective behavior.
+\newblock American journal of sociology (1978)  1420--1443
+
+\bibitem{aggarwal2011flow}
+Aggarwal, C., Khan, A., Yan, X.:
+\newblock On flow authority discovery in social networks.
+\newblock In: SDM. (2011)  522--533
+
+\bibitem{ijcai13biaoxiang}
+Xiang, B., Liu, Q., Chen, E., Xiong, H., Zheng, Y., Yang, Y.:
+\newblock Pagerank with priors: An influence propagation perspective.
+\newblock In: IJCAI, AAAI Press (2013)  2740--2746
+
+\bibitem{pang2006introduction}
+Tan, P.N., Steinbach, M., Kumar, V.,  et~al.:
+\newblock Introduction to data mining.
+\newblock Pearson Addison Wesley Boston (2006)
+
+\bibitem{tang2014diversified}
+Tang, F., Liu, Q., Zhu, H., Chen, E., Zhu, F.:
+\newblock Diversified social influence maximization.
+\newblock In: ASONAM, IEEE (2014)  455--459
+
+\bibitem{deshpande2004item}
+Deshpande, M., Karypis, G.:
+\newblock Item-based top-n recommendation algorithms.
+\newblock ACM Transactions on Information Systems (TOIS) \textbf{22}(1) (2004)
+  143--177
+
+\end{thebibliography}

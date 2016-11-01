@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: IHIC336.aux
+The style file: splncs.bst
+Database file #1: ref.bib
+You're missing a field name---line 269 of file ref.bib
+ :   
+ :   %booktitle={Proceedings of the third ACM international conference on Web search and data mining},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 377 of file ref.bib
+ : 
+ : %  booktitle={Proceedings of the Twenty-Third international joint conference on Artificial Intelligence},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 393 of file ref.bib
+ :   
+ :   volume={1},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+A bad cross reference---entry "kdd13STRIP"
+refers to entry "DBLP:conf/kdd/2013", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/kdd/2013"
+You've used 22 entries,
+            2087 wiz_defined-function locations,
+            622 strings with 7198 characters,
+and the built_in function-call counts, 8135 in all, are:
+= -- 873
+> -- 253
+< -- 22
++ -- 92
+- -- 70
+* -- 525
+:= -- 1019
+add.period$ -- 29
+call.type$ -- 22
+change.case$ -- 20
+chr.to.int$ -- 0
+cite$ -- 22
+duplicate$ -- 436
+empty$ -- 790
+format.name$ -- 70
+if$ -- 2049
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 24
+newline$ -- 114
+num.names$ -- 22
+pop$ -- 100
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 318
+stack$ -- 0
+substring$ -- 612
+swap$ -- 243
+text.length$ -- 22
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 79
+width$ -- 24
+write$ -- 262
+(There were 4 error messages)
